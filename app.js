@@ -9,6 +9,10 @@ app.get('/loan', (req, res) => {
     res.sendFile(absPath)
 });
 
+app.get('/', (req, res) => {
+    res.sendFile("you have reached the home page");
+});
+
 app.listen(PORT, () => {
     console.log(`Server is running on http://localhost:${PORT}`);
 });

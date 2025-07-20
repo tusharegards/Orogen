@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Loan Generation Form</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 40px; }
+        form { max-width: 500px; margin: auto; padding: 20px; border: 1px solid #ccc; border-radius: 8px; }
+        label { display: block; margin-top: 15px; }
+        input, select { width: 100%; padding: 8px; margin-top: 5px; }
+        button { margin-top: 20px; padding: 10px 20px; }
+    </style>
+</head>
+<body>
+    <h2>Loan Generation Form</h2>
+    <form>
+        <label for="fullname">Full Name</label>
+        <input type="text" id="fullname" name="fullname" required>
+
+        <label for="email">Email Address</label>
+        <input type="email" id="email" name="email" required>
+
+        <label for="amount">Loan Amount</label>
+        <input type="number" id="amount" name="amount" min="1000" required>
+
+        <label for="term">Loan Term (months)</label>
+        <input type="number" id="term" name="term" min="1" required>
+
+        <label for="cardnumber">Credit Card Number</label>
+        <input type="text" id="cardnumber" name="cardnumber" maxlength="16" pattern="\d{16}" required>
+
+        <label for="expiry">Expiry Date</label>
+        <input type="month" id="expiry" name="expiry" required>
+
+        <label for="cvv">CVV</label>
+        <input type="password" id="cvv" name="cvv" maxlength="4" pattern="\d{3,4}" required>
+
+        <input type="hidden" name="xxTrustedFormCertUrl" id="xxTrustedFormCertUrl_0">
+
+        <button type="submit">Apply for Loan</button>
+    </form>
+
+
+  <!-- TrustedForm -->
+<script type="text/javascript">
+  (function() {
+    var tf = document.createElement('script');
+    tf.type = 'text/javascript';
+    tf.async = true;
+    tf.src = ("https:" == document.location.protocol ? 'https' : 'http') +
+      '://api.trustedform.com/trustedform.js?field=xxTrustedFormCertUrl&use_tagged_consent=true&l=' +
+      new Date().getTime() + Math.random();
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(tf, s);
+  })();
+</script>
+<noscript>
+  <img src='https://api.trustedform.com/ns.gif' />
+</noscript>
+<!-- End TrustedForm -->    
+</body>
+</html>

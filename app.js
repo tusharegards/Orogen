@@ -10,7 +10,7 @@ app.get('/loan', (req, res) => {
 });
 
 app.get('/', (req, res) => {
-    res.sendFile("you have reached the home page");
+    res.send("you have reached the home page");
 });
 
 app.listen(PORT, () => {

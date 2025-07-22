@@ -6,13 +6,14 @@ const app = express();
 const PORT = process.env.PORT || 3000;
 //set the view engine to ejs
 app.set('view engine', 'ejs');
-
+app.set('views', path.join(path.resolve(), 'views'));
 //to serve static files
 const assets = path.join(path.resolve(), 'assets');
 console.log(assets);
 //set middleware to serve static files
 app.use(express.static(assets))
 app.use('/assets',express.static(assets))
+
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));   
 

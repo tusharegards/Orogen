@@ -9,9 +9,10 @@ app.set('view engine', 'ejs');
 
 //to serve static files
 const assets = path.join(path.resolve(), 'assets');
-
+console.log(assets);
 //set middleware to serve static files
 app.use(express.static(assets))
+app.use('/assets',express.static(assets))
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));   
 

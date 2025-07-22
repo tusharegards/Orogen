@@ -1,13 +1,14 @@
 import payload from "../assets/scripts/input.js";
 
 export const getDocumentPayload = (req, res) => {
+  let record = req.params.id; 
   let username = "tushart@exterprise.in";
   let password = "Password@2151";
   let doc;
 
   let promise = new Promise((resolve, reject) => {
     let uri =
-      "https://exterprisedev.service-now.com/api/now/v2/table/x_exter_exterlead_document_attachment/28d03e0a2bf22610cddaffa95e91bf69";
+      "https://exterprisedev.service-now.com/api/now/v2/table/x_exter_exterlead_document_attachment/"+record;
     let encoded = Buffer.from(username + password).toString("base64");
     let auth = "Basic TW9oaXQuZXh0Olc4biNpRz9Y";
     console.log(auth);

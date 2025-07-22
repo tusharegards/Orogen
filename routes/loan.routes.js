@@ -7,7 +7,7 @@ router.get("/:id", getDocumentPayload);
 
 //Random Homepage of Application
 router.get('/', (req, res) => {
-    res.send("you have reached the Home Page of Orogene : A process of Mountain Formation");
+    res.send("Welcome to the mountain womb: Mountain forms here in cold fire");
 });
 
 export default router;

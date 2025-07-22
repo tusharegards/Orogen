@@ -3,7 +3,7 @@ import path from 'path';
 import loanRoutes from './routes/loan.routes.js';
 
 const app = express();
-const PORT = process.env.port || 3000;
+const PORT = process.env.PORT || 3000;
 //set the view engine to ejs
 app.set('view engine', 'ejs');
 

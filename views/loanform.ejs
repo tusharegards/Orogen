@@ -14,7 +14,6 @@
 <div class="form"></div>   
 <form action="/document/submit" method="post">
     <div class="page">
-        <!--
     <% if (content.length) { %>
         <% for(let item of content)  { %>
             <% for(let list of item.content_stack)  { %>
@@ -23,17 +22,17 @@
         <% } %>
     <% } else {%> 
             <div> Content Not Found </div>
-            <%} %> -->
+            <%} %> 
 <input type="hidden" name="xxTrustedFormCertUrl">
 <input type="submit" value="Agree and Submit">
 </form>
 </div>
 
-<!-- script to include singpad functionality
+<!-- script to include singpad functionality--> 
 <script src="/assets/scripts/signpad.js"></script>
--->  
+ 
 
-<!-- TrustedForm 
+<!-- TrustedForm -->
     <script type="text/javascript">
         (function () {
             var tf = document.createElement('script');
@@ -48,7 +47,7 @@
     <noscript>
         <img src='https://api.trustedform.com/ns.gif' />
     </noscript>
-    End TrustedForm -->
+ <!--   End TrustedForm -->
 
 </body>
 

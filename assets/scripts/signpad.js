@@ -10,6 +10,16 @@
       };
   })();
 
+const form = document.getElementById("form");  
+console.log("form", form);
+form.addEventListener("submit", onSignSubmit );
+function onSignSubmit(event) {
+  var dataUrl = "";// Prevent the default form submission
+document.getElementsByName("sig-canvas").forEach(function(canvas,index) {
+  dataUrl =  dataUrl + canvas.toDataURL();
+});
+document.getElementById('dataUrl').value = dataUrl;
+}
 // Initialize the canvas and set up event listeners
 document.getElementsByName("sig-canvas").forEach(function(canvas,index) {
   console.log("canvas", index+1);
@@ -127,7 +137,5 @@ function initCanvases(canvasId, index) {
     clearCanvas();
   }, false);
 }
-
-  
 
 })();

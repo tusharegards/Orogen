@@ -1,6 +1,6 @@
 import express from 'express';
 import { getDocumentPayload } from '../controllers/getDocument.controller.js';
-import { submitDocumentPayload } from '../controllers/submitDocumnet.controller.js';
+import { submitDocumentPayload } from '../controllers/submitDocument.controller.js';
 const router = express.Router();
 // Define the route for loan documents to get the document payload
 router.get("/:id", getDocumentPayload);

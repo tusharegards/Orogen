@@ -11,8 +11,7 @@
 <body>
 
 <!-- Logic to render Agreement content-->    
-<div class="form"></div>   
-<form action="/document/submit" method="post">
+<form id='form' action="/document/submit" method="post">
     <div class="page">
     <% if (content.length) { %>
         <% for(let item of content)  { %>
@@ -23,10 +22,11 @@
     <% } else {%> 
             <div> Content Not Found </div>
             <%} %> 
+<input type="hidden" id="dataUrl" name="dataUrl">
 <input type="hidden" name="xxTrustedFormCertUrl">
 <input type="submit" value="Agree and Submit">
 </form>
-</div>
+
 
 <!-- script to include singpad functionality--> 
 <script src="/assets/scripts/signpad.js"></script>

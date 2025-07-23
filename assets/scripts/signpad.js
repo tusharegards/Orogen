@@ -11,11 +11,12 @@
   })();
 
 // Initialize the canvas and set up event listeners
-document.getElementsByName("sig-canvas").forEach(function(canvas) {
-  initCanvases(canvas);
+document.getElementsByName("sig-canvas").forEach(function(canvas,index) {
+  console.log("canvas", index+1);
+  initCanvases(canvas, index+1);
 });
 
-function initCanvases(canvasId) {
+function initCanvases(canvasId, index) {
     var canvas = canvasId;
     var ctx = canvas.getContext("2d");
   ctx.strokeStyle = "#222222";
@@ -120,21 +121,10 @@ function initCanvases(canvasId) {
   function clearCanvas() {
     canvas.width = canvas.width;
   }
-
-  // Set up the UI
-  var sigText = document.getElementById("sig-dataUrl");
-  var sigImage = document.getElementById("sig-image");
-  var clearBtn = document.getElementById("sig-clearBtn");
-  var submitBtn = document.getElementById("sig-submitBtn");
+  var clearBtn = document.getElementById("sig-clearBtn-"+index);
+  console.log("clearBtn", clearBtn);
   clearBtn.addEventListener("click", function(e) {
     clearCanvas();
-    sigText.innerHTML = "Data URL for your signature will go here!";
-    sigImage.setAttribute("src", "");
-  }, false);
-  submitBtn.addEventListener("click", function(e) {
-    var dataUrl = canvas.toDataURL();
-    sigText.innerHTML = dataUrl;
-    sigImage.setAttribute("src", dataUrl);
   }, false);
 }
 

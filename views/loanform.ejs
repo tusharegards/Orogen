@@ -12,7 +12,7 @@
 
 <!-- Logic to render Agreement content-->    
 <div class="form"></div>   
-<form action="/submit" method="post">
+<form action="/document/submit" method="post">
     <div class="page">
     <% if (content.length) { %>
         <% for(let item of content)  { %>
@@ -23,8 +23,8 @@
     <% } else {%> 
             <div> Content Not Found </div>
             <%} %> 
-
-    <button type="submit" id="submit">Agree and Submit</button>
+<input type="hidden" name="xxTrustedFormCertUrl">
+<input type="submit" value="Agree and Submit">
 </form>
 </div>
 

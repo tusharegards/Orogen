@@ -120,6 +120,32 @@ noscript img {
   display: none;
 }
 
+/* Submit button */
+input[type="submit"] {
+  display: block;
+  margin: 40px auto 0;
+  padding: 12px 28px;
+  font-size: 16px;
+  font-weight: 600;
+  color: #fff;
+  background-color: #007bff;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+  box-shadow: 0 4px 10px rgba(0, 123, 255, 0.2);
+}
+
+input[type="submit"]:hover {
+  background-color: #0056b3;
+  transform: translateY(-2px);
+}
+
+input[type="submit"]:focus {
+  outline: 2px solid #80bdff;
+  outline-offset: 2px;
+}
+
 /* Media: Print Optimization */
 @media print {
   body {

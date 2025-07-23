@@ -10,13 +10,12 @@ app.set('view engine', 'ejs');
 const assets = path.join(path.resolve(), 'assets');
 //set middleware to serve static files
 app.use('/assets',express.static(assets))
-app.use('/',express.static(assets))
+
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));   
 
 // Set the document views directory
 app.use('/document', loanRoutes);
-
 
 //default Home Page
 app.get('/', (req, res) => {

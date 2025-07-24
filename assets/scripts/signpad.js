@@ -38,7 +38,6 @@ function initCanvases(canvasId, index) {
     y: 0
   };
   var lastPos = mousePos;
-
   canvas.addEventListener("mousedown", function(e) {
     drawing = true;
     lastPos = getMousePos(canvas, e);

@@ -32,7 +32,7 @@ export const getDocumentPayload = (req, res) => {
       .then((res2) => {
         const document = JSON.parse(res2.result.payload);
         console.log("output" + document);
-        res.render("loanform", { content: document });
+        res.render("loanform", { content: document, record: record});
       });
   });
 };

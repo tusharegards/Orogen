@@ -8,10 +8,10 @@ export const submitDocumentPayload = (req, res) => {
 let config = {
   method: 'post',
   maxBodyLength: Infinity,
-  url: 'https://exterprisedev.service-now.com/api/x_exter_exterlead/collect_signatures',
+  url: 'https://exterprise.service-now.com/api/x_exter_exterlead/collect_signatures',
   headers: { 
     'Content-Type': 'application/json, application/json', 
-    'Authorization': 'Basic TW9oaXQuZXh0Olc4biNpRz9Y'
+    'Authorization': 'Basic RG9jdW1lbnQudXNlcjo6Q21eWyxNNFtBNSl5T1hxdHFhPlA='
   },
   data : data
 };

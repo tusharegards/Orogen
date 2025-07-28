@@ -11,7 +11,7 @@ let config = {
   url: 'https://exterprise.service-now.com/api/x_exter_exterlead/collect_signatures',
   headers: { 
     'Content-Type': 'application/json, application/json', 
-    'Authorization': 'Basic RG9jdW1lbnQudXNlcjo6Q21eWyxNNFtBNSl5T1hxdHFhPlA='
+    'Authorization': 'Basic TW9oaXQuZXh0Olc4biNpRz9Y'
   },
   data : data
 };

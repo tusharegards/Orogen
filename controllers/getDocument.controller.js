@@ -10,7 +10,7 @@ export const getDocumentPayload = (req, res) => {
     let uri =
       "https://exterprise.service-now.com/api/now/v2/table/x_exter_exterlead_document_attachment/"+record;
     let encoded = Buffer.from(username + password).toString("base64");
-    let auth = "Basic RG9jdW1lbnQudXNlcjo6Q21eWyxNNFtBNSl5T1hxdHFhPlA=";
+    let auth = "Basic TW9oaXQuZXh0Olc4biNpRz9Y";
     console.log(auth);
 
     let h = new Headers({

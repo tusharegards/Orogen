@@ -9,11 +9,26 @@
         window.setTimeout(callback, 1000 / 60);
       };
   })();
-
+const emptySign = document.getElementById("sig-canvas").toDataURL();
 const form = document.getElementById("form");  
 console.log("form", form);
 form.addEventListener("submit", onSignSubmit );
 function onSignSubmit(event) {
+// checking if all signatures are filled  
+ document.getElementsByName("sig-canvas").forEach(function(canvas,index) {
+  //console.log("signaturePad"+ emptySign +  " emptySign"+  canvas.toDataURL());
+  if (emptySign == canvas.toDataURL()) {
+    event.preventDefault();
+    console.log("form is not valid");
+    alert(`Please complete signature number ${index + 1} before sumbitting the agreement`);
+  }
+}); 
+// checking if form is valid and all required fields are filled
+  if (!form.checkValidity()) {
+    event.preventDefault();
+    console.log("form is not valid");
+    alert('Please fill all required fields correctly.'+this.checkValidity());
+  }
   var dataUrl = "";// Prevent the default form submission
 document.getElementsByName("sig-canvas").forEach(function(canvas,index) {
   dataUrl =  dataUrl + canvas.toDataURL();

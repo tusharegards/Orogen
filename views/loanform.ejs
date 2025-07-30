@@ -12,7 +12,7 @@
 
 <!-- Logic to render Agreement content-->    
 <form id='form' action="/document/submit" method="post">
-    <div class="page">
+    <div>
     <% if (content.length) { %>
         <% for(let item of content)  { %>
             <% for(let list of item.content_stack)  { %>

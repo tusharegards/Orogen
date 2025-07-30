@@ -25,7 +25,7 @@ form {
 /* A4 Paper Look */
 .page {
   background: #fff;
-  width: 410mm;
+  width: 210mm;
   min-height: 297mm;
   padding: 30mm 25mm;
   box-shadow: 0 0 10px rgba(0,0,0,0.15);
@@ -113,6 +113,7 @@ img {
   display: block;
   margin: 15px auto;
   text-align: center;
+  page-break-before: always;
 }
 
 /* TrustedForm tracking image */

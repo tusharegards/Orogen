@@ -19,7 +19,7 @@ app.use('/document', loanRoutes);
 
 //default Home Page
 app.get('/', (req, res) => {
-    res.send("you have reached the Home Page of Orogene : A process of Mountain Formation");
+    res.render("omnitix");
 });
 app.listen(PORT, () => {
     console.log(`Server is running on http://localhost:${PORT}`);

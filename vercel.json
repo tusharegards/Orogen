@@ -1,16 +1,12 @@
 {
   "$schema": "https://openapi.vercel.sh/vercel.json",
   "installCommand": "npm install && npm install --prefix client",
-  "buildCommand": "npm run build",
-  "functions": {
-    "app.js": {
-      "includeFiles": "client/dist/**"
-    }
-  },
+  "buildCommand": "npm --prefix client run build",
+  "outputDirectory": "client/dist",
   "rewrites": [
     {
       "source": "/(.*)",
-      "destination": "/app"
+      "destination": "/index.html"
     }
   ]
 }

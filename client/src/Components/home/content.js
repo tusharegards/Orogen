@@ -2,6 +2,7 @@ export const navLinks = [
   { label: 'Services', href: '#services' },
   { label: 'Process', href: '#process' },
   { label: 'Contact', href: '#contact' },
+  { label: 'Dashboard', href: '/dashboard' },
 ]
 
 export const signalCards = [

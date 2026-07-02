@@ -4,6 +4,7 @@ import { Route, Routes } from 'react-router'
 import Home from './Pages/Home'
 import Products from './Pages/Products'
 import Contact from './Pages/Contact' 
+import Dashboard from './Pages/Dashboard'
 import SiteShell from './Components/layout/SiteShell'
 
 const App = () => {
@@ -13,6 +14,7 @@ const App = () => {
         <Route path='/' element={<Home />} />
         <Route path='/products' element={<Products />} />
         <Route path='/contact' element={<Contact />} />
+        <Route path='/dashboard' element={<Dashboard />} />
       </Routes>
     </SiteShell>
   )

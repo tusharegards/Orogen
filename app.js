@@ -13,7 +13,7 @@ import rbacRoutes from './routes/rbac.routes.js'
 dotenv.config()
 
 const app = express()
-const PORT = process.env.PORT || 5000
+const PORT = process.env.PORT || 5050
 
 const __filename = fileURLToPath(import.meta.url)
 const __dirname = path.dirname(__filename)
@@ -23,6 +23,10 @@ app.use(cors())
 app.use(express.json())
 
 // API Routes
+app.get('/test', (req, res) => {
+  console.log('Server is running')
+  res.status(200).json({ status: 'ok', message: 'Server is running' })
+})
 app.use('/api/auth', authRoutes)
 app.use('/api/accounts', accountRoutes)
 app.use('/api/projects', projectRoutes)

@@ -7,8 +7,7 @@
     "node": "22.x"
   },
   "scripts": {
-    "build": "npm --prefix client run build",
-    "dev:client": "npm --prefix client run dev",
+    "build": "echo 'Backend API ready'",
     "dev:server": "nodemon app.js",
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node app.js"
@@ -18,8 +17,15 @@
   "description": "",
   "dependencies": {
     "axios": "^1.11.0",
+    "bcryptjs": "^3.0.3",
+    "cors": "^2.8.6",
+    "dotenv": "^18.0.5",
     "ejs": "^3.1.10",
     "express": "^5.1.0",
-    "nodemon": "^3.1.10"
+    "jsonwebtoken": "^9.0.3",
+    "nodemailer": "^10.0.15",
+    "nodemon": "^3.1.10",
+    "pg": "^8.23.1",
+    "validator": "^13.15.35"
   }
 }

@@ -50,9 +50,14 @@ const startServer = async () => {
     await initDb()
   }
 
-  app.listen(PORT, () => {
-    console.log(`🚀 Orogen API Server running on http://localhost:${PORT}`)
-  })
+  if (!process.env.VERCEL) {
+    app.listen(PORT, () => {
+      console.log(`🚀 Orogen API Server running on http://localhost:${PORT}`)
+    })
+  }
 }
 
 startServer()
+
+export default app
+

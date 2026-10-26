@@ -1,5 +1,6 @@
 import bcrypt from 'bcryptjs'
 import jwt from 'jsonwebtoken'
+import { randomInt } from 'crypto'
 import { query } from '../db/index.js'
 import { validateRealEmail } from '../utils/emailValidator.js'
 import { sendOtpEmail } from '../utils/emailService.js'
@@ -7,7 +8,7 @@ import { sendOtpEmail } from '../utils/emailService.js'
 const JWT_SECRET = process.env.JWT_SECRET || 'supersecret_orogen_jwt_key_2026'
 
 // Helper to generate 6-digit OTP
-const generateOtp = () => Math.floor(100000 + Math.random() * 900000).toString()
+const generateOtp = () => randomInt(100000, 1000000).toString()
 
 // Helper to validate strong password complexity
 const validatePasswordComplexity = (password) => {
@@ -63,7 +64,7 @@ export const signup = async (req, res) => {
         const emailRes = await sendOtpEmail(normalizedEmail, otpCode, userObj.name)
         const msgSuffix = emailRes.sent
           ? 'A 6-digit OTP code has been sent to your email address.'
-          : `An OTP was generated. (Note: Email delivery failed: SMTP Bad Credentials. Your verification OTP is: ${otpCode})`
+          : 'We could not send the verification email right now. Please try again shortly.'
 
         return res.status(200).json({
           success: true,
@@ -103,7 +104,7 @@ export const signup = async (req, res) => {
     const emailRes = await sendOtpEmail(normalizedEmail, otpCode, newUser.name)
     const msgSuffix = emailRes.sent
       ? `We have sent a 6-digit OTP verification code to ${normalizedEmail}. Please check your inbox.`
-      : `Account created! (Note: SMTP delivery failed due to bad credentials. Your OTP verification code is: ${otpCode})`
+      : 'Account created, but we could not send the verification email right now. Please request a new code shortly.'
 
     return res.status(201).json({
       success: true,
@@ -209,9 +210,9 @@ export const resendOtp = async (req, res) => {
     const emailRes = await sendOtpEmail(normalizedEmail, newOtp, userObj.name)
     const msg = emailRes.sent
       ? `A new 6-digit OTP code has been sent to ${normalizedEmail}.`
-      : `New OTP generated! (Note: SMTP delivery failed due to bad credentials. Your verification OTP code is: ${newOtp})`
+      : 'We could not send the verification email right now. Please try again shortly.'
 
-    return res.status(200).json({ success: true, message: msg })
+    return res.status(emailRes.sent ? 200 : 502).json({ success: emailRes.sent, message: msg })
   } catch (error) {
     console.error('Resend OTP error:', error)
     return res.status(500).json({ success: false, message: 'Failed to resend OTP code.' })
@@ -251,7 +252,7 @@ export const login = async (req, res) => {
       const emailRes = await sendOtpEmail(normalizedEmail, otpCode, user.name)
       const msg = emailRes.sent
         ? 'Your account is not verified yet. We have sent a 6-digit OTP to your email address.'
-        : `Your account is not verified yet. (Note: SMTP delivery failed due to bad credentials. Your OTP verification code is: ${otpCode})`
+        : 'Your account is not verified yet, and we could not send the verification email right now. Please try again shortly.'
 
       return res.status(403).json({
         success: false,
